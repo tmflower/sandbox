@@ -1,11 +1,15 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const userRoutes = require("./routes");
-app.use("/", userRoutes);
+
+
+app.use(cors());
 app.use(express.json());
+app.use("/", userRoutes);
 
 app.use(function (req, res, next) {
-return next(new Error("No can find"));
+return next(new Error("Not found"));
 });
 
 app.use(function (err, req, res, next) {

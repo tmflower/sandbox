@@ -1,6 +1,8 @@
 import { useState } from "react";
+import axios from "axios";
 
 export function Signup() {
+    const [message, setMessage] = useState('');
     const [formData, setFormData] = useState({ username: '', password: ''});
     const { username, password } = formData;
 
@@ -9,16 +11,42 @@ export function Signup() {
         setFormData(formData => ({ ...formData, [name]: value}));
     }
 
-    const handleSubmit = (evt) => {
+    const handleSubmit = async (evt) => {
         evt.preventDefault();
-        const newUser = { username, password }
+        try {
+            await axios.post(`http://localhost:3001/signup`, { username, password });
+            setMessage("Signup successful!")
+        }
+        catch(err) {
+            console.error(err);
+        }
     }
+
     return (
         <div>
             <h1>Sign up</h1>
             <form>
-
+                <label htmlFor="username">Username:
+                <input 
+                    type="text" 
+                    name="username" 
+                    value={username} 
+                    id="username" 
+                    onChange={handleChange}>
+                </input>
+                </label>
+                <label htmlFor="password">Password:
+                <input 
+                    type="password"
+                    name="password" 
+                    value={password} 
+                    id="password" 
+                    onChange={handleChange}>
+                </input>
+                </label>
+                <button onClick={handleSubmit}>Submit</button> 
             </form>
+            <p>{message}</p>
         </div>
     )
 }
