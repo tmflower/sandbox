@@ -2,11 +2,6 @@ const express = require("express");
 const router = new express.Router();
 const db = require("./db");
 
-router.get("/home", async function (req, res) {
-    const msg = "Welcome home!";
-    return res.status(200).json({msg})
-});
-
 router.post("/signup", async function (req, res, next) { 
     try {
         const { username, password } = req.body;
@@ -63,7 +58,7 @@ router.get("/users/:username", async function (req, res, next) {
         if (result.rows[0]){
             return res.status(201).json(result.rows[0]);
         }
-        return res.status(400).json({message: `No user ${username}`})
+        return res.status(400).json({message: `No user ${username}`});
     }
     catch(err) {
         return next(err);
