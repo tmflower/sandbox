@@ -11,7 +11,7 @@ export function Todos() {
     useEffect(() => {
         async function getTodos() {
             const result = await axios.get(`http://localhost:3001/todos`);
-            setTodos(result.data)
+            setTodos(result.data);
         }
         getTodos();
     }, [todos]);

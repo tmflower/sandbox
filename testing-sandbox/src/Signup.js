@@ -13,9 +13,9 @@ export function Signup() {
 
     const handleSubmit = async (evt) => {
         evt.preventDefault();
-        try {
+        try {            
             await axios.post(`http://localhost:3001/signup`, { username, password });
-            setMessage("Signup successful!")
+            setMessage("Signup successful!");            
         }
         catch(err) {
             console.error(err);
@@ -32,6 +32,7 @@ export function Signup() {
                     name="username" 
                     value={username} 
                     id="username" 
+                    placeholder="username"
                     onChange={handleChange}>
                 </input>
                 </label>
@@ -41,12 +42,14 @@ export function Signup() {
                     name="password" 
                     value={password} 
                     id="password" 
+                    placeholder="password"
                     onChange={handleChange}>
                 </input>
                 </label>
                 <button onClick={handleSubmit}>Submit</button> 
             </form>
-            <p>{message}</p>
+            {message ? <p data-testid="message">{message}</p> : null}
+            
         </div>
     )
 }

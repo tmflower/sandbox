@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="App"
+  >
+    <nav>
+      <a
+        class=""
+        exact="true"
+        href="/signup"
+      >
+        Sign up
+      </a>
+      <a
+        class=""
+        exact="true"
+        href="/login"
+      >
+        Log in
+      </a>
+      <a
+        class=""
+        exact="true"
+        href="/todos"
+      >
+        Todos
+      </a>
+    </nav>
+    <div>
+      <h1>
+        Todos
+      </h1>
+      <h4>
+        Add a new task
+      </h4>
+      <form>
+        <label
+          for="task"
+        >
+          Task:
+          <input
+            id="task"
+            name="task"
+            type="text"
+            value=""
+          />
+        </label>
+        <button>
+          Submit
+        </button>
+      </form>
+      <p />
+      <ul />
+    </div>
+  </div>
+</DocumentFragment>
+`;

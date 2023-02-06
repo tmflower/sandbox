@@ -31,6 +31,7 @@ export function Login() {
                     name="username" 
                     value={username} 
                     id="username" 
+                    placeholder="username"
                     onChange={handleChange}>
                 </input>
                 </label>
@@ -40,6 +41,7 @@ export function Login() {
                     name="password" 
                     value={password} 
                     id="password" 
+                    placeholder="password"
                     onChange={handleChange}>
                 </input>
                 </label>
