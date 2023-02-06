@@ -38,15 +38,13 @@ test("renders Todos component correctly", () => {
 test("handles submit button click", async() => {
     render(<Todos />);
     const buttonElement = screen.getByRole("button");
-    const task = screen.queryByText("Walk the dog");
+    const task = screen.queryByText("Grocery shopping");
     expect(task).not.toBeInTheDocument();
 
-    const newTask = { task: "Walk the dog" }
-    const todos = [{ task: "Walk the dog" }, {task: "Feed the fish"}, {task: "Water plants"}]
+    const newTask = { task: "Grocery shopping" }
     await axios.post.mockImplementation(() => Promise.resolve({ data: { newTask } }));
-    await axios.get.mockImplementation(() => Promise.resolve({ data: { todos } }));
     await userEvent.click(buttonElement);
 
-    const task2 = screen.queryByText("Walk the dog");
-    expect(task2).toBeInTheDocument();
+    const newTaskRendered = screen.getByText("Grocery shopping");
+    expect(newTaskRendered).toBeInTheDocument();
 });
