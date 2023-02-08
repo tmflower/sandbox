@@ -26,7 +26,44 @@ exports[`matches snapshot 1`] = `
       </button>
     </form>
     <p />
-    <ul />
+    <ul>
+      <li
+        style="list-style-type: none;"
+      >
+        <div>
+          <p>
+            <span>
+              🗑️
+            </span>
+             Walk the dog
+          </p>
+        </div>
+      </li>
+      <li
+        style="list-style-type: none;"
+      >
+        <div>
+          <p>
+            <span>
+              🗑️
+            </span>
+             Feed the fish
+          </p>
+        </div>
+      </li>
+      <li
+        style="list-style-type: none;"
+      >
+        <div>
+          <p>
+            <span>
+              🗑️
+            </span>
+             Water plants
+          </p>
+        </div>
+      </li>
+    </ul>
   </div>
 </DocumentFragment>
 `;

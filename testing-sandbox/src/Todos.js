@@ -1,25 +1,17 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { Todo } from "./Todo";
 
-export function Todos() {
-    const [todos, setTodos] = useState([]);
+export function Todos({todos}) {
+
     const [message, setMessage] = useState('');
     const [formData, setFormData] = useState({ task: ''});
     const { task } = formData;
 
-    useEffect(() => {
-        async function getTodos() {
-            const result = await axios.get(`http://localhost:3001/todos`);
-            setTodos(result.data);
-        }
-        getTodos();
-    }, [todos]);
-
     const handleChange = (evt) => {
         const { name, value } = evt.target;
         setFormData(formData => ({ ...formData, [name]: value}));
-    }
+    };
 
     const handleSubmit = async (evt) => {
         evt.preventDefault();
@@ -31,7 +23,7 @@ export function Todos() {
         catch(err) {
             console.error(err);
         }
-    }
+    };
 
     return (
         <div>
@@ -50,9 +42,12 @@ export function Todos() {
                 <button onClick={handleSubmit}>Submit</button> 
             </form>
             <p>{message}</p>
+            {!todos.length ? <p>No tasks yet. Add a new task above.</p> 
+            :
             <ul>
                 {todos.map((todo, i) => <li key={i} style={{listStyleType:'none'}}><Todo key={i} todo={todo}/></li>)}
             </ul>
+            }
         </div>
     )
 }

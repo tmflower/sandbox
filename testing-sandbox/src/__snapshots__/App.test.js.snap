@@ -52,7 +52,9 @@ exports[`matches snapshot 1`] = `
         </button>
       </form>
       <p />
-      <ul />
+      <p>
+        No tasks yet. Add a new task above.
+      </p>
     </div>
   </div>
 </DocumentFragment>
